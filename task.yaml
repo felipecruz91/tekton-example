@@ -1,0 +1,33 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: echo-hello-world
+spec:
+  volumes:
+    - name: myvol
+      emptyDir: {}
+  steps:
+    - name: echo
+      image: alpine
+      command:
+        - echo
+      args:
+        - "Hello World"
+
+    - name: touch
+      image: alpine
+      command:
+        - touch
+      args: ["/tmp/file.txt"]
+      volumeMounts:
+        - mountPath: /tmp
+          name: myvol
+
+    - name: ls
+      image: alpine
+      command:
+        - ls
+      args: ["-la", "/tmp"]
+      volumeMounts:
+        - mountPath: /tmp
+          name: myvol
