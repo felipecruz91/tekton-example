@@ -1,5 +1,9 @@
 # tekton-example
 
+This example will run a simple Tekton pipeline that will create a file.
+
+![pipeline-test-run](./docs/images/pipeline-test-run.PNG)
+
 ## Installing Tekton Pipelines on Kubernetes
 
 To [install](https://github.com/tektoncd/pipeline/blob/master/docs/install.md#installing-tekton-pipelines-on-kubernetes) Tekton Pipelines on a Kubernetes cluster:
